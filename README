@@ -1,1 +1,7 @@
-Please see http://phlawd.net for instructions on installation and running PHLAWD.
+On MacOS Mavericks:
+
+Install homebrew (if you do not have it already)
+    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)
+
+Add the science tap
+brew tap homebrew/science
