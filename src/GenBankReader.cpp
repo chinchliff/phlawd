@@ -69,11 +69,7 @@ void GenBankReader::parse_file(string fl, string db_name){
 		continue;
 	    }
 	    if(tokens[0] == "VERSION"){
-		gin = tokens[2];
-		vector<string> t2;
-		string del2(":");
-		Tokenize(tokens[2],t2,del2);
-		gin = t2[1];
+		gin = tokens[1];
 		continue;
 	    }
 	    if(tokens[0].find("/db_xref=\"taxon:")!= string::npos){

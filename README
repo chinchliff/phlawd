@@ -1,36 +1,33 @@
-## Follow these commands to install on Mac
+PHLAWD
+======
 
-## Install homebrew for compilers and dependencies
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew tap homebrew/versions
-brew tap homebrew/science
+There are several verisons of phlawd floating around:
 
-## Get gcc with support for openmp (this can take a while)
-brew install gcc --without-multilib
+*   The official version of phlawd at https://github.com/blackrim/phlawd
+    entered maintenance mode Sep 2012 and has not had its code updated
+    since then.
 
-## Set gcc as default compiler (rather than clang), and build things from source
-## To make this permanent, put in ~/.bashrc
-export HOMEBREW_CC=gcc-5
-export HOMEBREW_CXX=g++-5
-export HOMEBREW_BUILD_FROM_SOURCE=TRUE
+*   The "chinchliff" fork of phlawd was last updated in Mar 2016 and
+    contains a number of bug fixes and features, including the ability
+    to use whole genome sequences and "shrinking" to the target gene.
 
-## Check
-brew --env
+This is an unofficial fork, which updates the code for the GenBank ID change
+(https://www.ncbi.nlm.nih.gov/news/03-02-2016-phase-out-of-GI-numbers/)
+and downloads GenBank daily updates in addition to the regular releases.
 
-## Some general dependencies
-brew install automake
-brew install autoconf
-brew install libtool
+Requirements
+------------
 
-## PHLAWD dependencies
-brew install muscle
-brew install quicktree
-brew install mafft
+phlawd requires the GCC compiler, as well as wget, mafft, muscle,
+quicktree, and sqlite to be in the user's path. These can be installed via
+Homebrew (https://brew.sh) on macOS or Linuxbrew (https://linuxbrew.sh).
 
-## Compile PHLAWD
-cd phlawd/src
-autoreconf -fi
-./configure CC=gcc-5 CXX=g++-5
+Installation
+------------
+
+git clone https://github.com/jonchang/phlawd.git
+cd phlawd/
+cd src/
+./configure
 make
-sudo make install
-
+install PHLAWD /usr/local/bin # or wherever...

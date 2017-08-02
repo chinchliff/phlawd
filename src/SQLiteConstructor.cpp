@@ -1680,12 +1680,12 @@ void SQLiteConstructor::clean_shrunken_genomes() {
 	string trimmed_genomes = genefoldername + "genome_shrink_aln";
 	fu.read_aligned_fasta_into(tempalseqs, trimmed_genomes); // assuming this is aligned
 
-	int seqlength = tempalseqs[0].get_sequence().size();
+	size_t seqlength = tempalseqs[0].get_sequence().size();
 	float fseql = float(tempalseqs.size());
-	vector<int> removeem;
-	for (int j = 0; j < seqlength; j++) {
-		int gaps = 0;
-		for (int i = 0; i < tempalseqs.size(); i++) {
+	vector<size_t> removeem;
+	for (size_t j = 0; j < seqlength; j++) {
+		size_t gaps = 0;
+		for (size_t i = 0; i < tempalseqs.size(); i++) {
 			if (tempalseqs[i].get_sequence()[j] == '-' || tempalseqs[i].get_sequence()[j] == 'N' || tempalseqs[i].get_sequence()[j] == 'n')
 				gaps += 1;
 		}
@@ -1694,9 +1694,9 @@ void SQLiteConstructor::clean_shrunken_genomes() {
 			removeem.push_back(j);
 		}
 	}
-	for (int i = 0; i < tempalseqs.size(); i++) {
+	for (size_t i = 0; i < tempalseqs.size(); i++) {
 		string a;
-		for (int j = 0; j < seqlength; j++) {
+		for (size_t j = 0; j < seqlength; j++) {
 			if (count(removeem.begin(), removeem.end(), j) == 0)
 				a += tempalseqs[i].get_sequence()[j];
 		}

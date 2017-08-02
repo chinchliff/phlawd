@@ -42,7 +42,7 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
     if(argc != 3) {
-	cout << "PHLAWD 3.4a" << endl;
+	cout << "PHLAWD 3.4b (UNOFFICIAL FORK)" << endl;
 	cout << "you need more arguments." << endl;
 	cout << "usage: PHLAWD task configfile" << endl;
 	cout << "possible tasks include:" << endl;
